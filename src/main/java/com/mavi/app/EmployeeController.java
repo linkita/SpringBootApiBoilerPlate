@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
+@RequestMapping("/api")
 class EmployeeController {
 
     private final EmployeeRepository repository;
@@ -57,6 +60,8 @@ class EmployeeController {
 
     @DeleteMapping("/employees/{id}")
     void deleteEmployee(@PathVariable Long id) {
+        repository.findById(id)
+                .orElseThrow(() -> new EmployeeNotFoundException(id));
         repository.deleteById(id);
     }
 }
