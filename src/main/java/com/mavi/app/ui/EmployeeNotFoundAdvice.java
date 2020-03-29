@@ -1,5 +1,6 @@
-package com.mavi.app;
+package com.mavi.app.ui;
 
+import com.mavi.app.domain.EmployeeNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

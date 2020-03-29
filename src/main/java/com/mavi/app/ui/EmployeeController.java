@@ -1,7 +1,10 @@
-package com.mavi.app;
+package com.mavi.app.ui;
 
 import java.util.List;
 
+import com.mavi.app.domain.Employee;
+import com.mavi.app.domain.EmployeeNotFoundException;
+import com.mavi.app.domain.EmployeeRepository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 @RequestMapping("/api")
@@ -23,6 +25,11 @@ class EmployeeController {
     }
 
     // Aggregate root
+
+    @GetMapping("/ping")
+    String ping() {
+        return "pong";
+    }
 
     @GetMapping("/employees")
     List<Employee> all() {
@@ -40,6 +47,7 @@ class EmployeeController {
     Employee one(@PathVariable Long id) {
 
         return repository.findById(id)
+
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
     }
 
