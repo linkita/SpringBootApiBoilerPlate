@@ -3,7 +3,7 @@
 
 This is a boilerplate with Spring boot 2.2.6 and JUnit5. 
 
-You can found an basic api, with a h2database and a Swagger documentation when you can try the api methods.
+You can found a basic api, with a h2database and a Swagger documentation when you can try the api methods.
 
 ## How to run with Docker (recommended)
 

@@ -1,4 +1,4 @@
-package com.mavi.app.ui;
+package com.mavi.app.infra;
 
 import com.mavi.app.domain.EmployeeNotFoundException;
 import org.springframework.http.HttpStatus;

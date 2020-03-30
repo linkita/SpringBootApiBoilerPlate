@@ -1,4 +1,4 @@
-package com.mavi.app.ui;
+package com.mavi.app.infra;
 
 import java.util.List;
 
@@ -45,9 +45,7 @@ class EmployeeController {
 
     @GetMapping("/employees/{id}")
     Employee one(@PathVariable Long id) {
-
         return repository.findById(id)
-
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
     }
 

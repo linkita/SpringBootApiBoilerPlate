@@ -1,30 +1,33 @@
 package com.mavi.app.domain;
 
-        import lombok.Data;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-        import javax.persistence.Entity;
-        import javax.persistence.GeneratedValue;
-        import javax.persistence.Id;
-
-@Data
 @Entity
 public
 class Employee {
 
-    private @Id @GeneratedValue Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String role;
 
-    public Employee() {}
+    public Employee() {
+    }
 
     public Employee(String name, String role) {
         this.name = name;
         this.role = role;
     }
 
-    public String getName() {
-        return name;
+    public Long getId() {
+        return id;
     }
+
+    public String getName() { return name; }
 
     public String getRole() {
         return role;
